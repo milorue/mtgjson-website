@@ -66,7 +66,7 @@ export default {
   bottom: 0;
   overflow: visible;
   background-color: var(--bg-color);
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 
   ol, ul {
     margin-left: 0;

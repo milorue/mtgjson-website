@@ -6,11 +6,15 @@
 
     Navbar(v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar")
 
-    Sidebar(:items="sidebarItems" @toggle-sidebar="toggleSidebar")
+    Sidebar(v-if="shouldShowSidebar" :items="sidebarItems" @toggle-sidebar="toggleSidebar")
       slot(name="sidebar-top" slot="top")
       slot(name="sidebar-bottom" slot="bottom")
 
-    Page(:sidebar-items="sidebarItems")
+    Page(v-if="!shouldShowHome" :sidebar-items="sidebarItems")
+      slot(name="page-top" slot="top")
+      slot(name="page-bottom" slot="bottom")
+
+    Home(v-else)
       slot(name="page-top" slot="top")
       slot(name="page-bottom" slot="bottom")
 
@@ -19,11 +23,12 @@
 <script>
 import Navbar from '../components/Navbar';
 import Page from '../components/Page';
+import Home from '../components/Home';
 import Sidebar from '../components/Sidebar';
 import { resolveSidebarItems } from '../util';
 
 export default {
-  components: { Page, Sidebar, Navbar },
+  components: { Page, Home, Sidebar, Navbar },
 
   data() {
     return {
@@ -31,7 +36,16 @@ export default {
     };
   },
 
+  async created() {
+    await this.$helpers.setStoreState.apply(this, ["Meta"]);
+  },
+
   computed: {
+    shouldShowHome(){
+      const { frontmatter } = this.$page;
+
+      return !!(frontmatter.home);
+    },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
@@ -50,7 +64,7 @@ export default {
     shouldShowSidebar() {
       const { frontmatter } = this.$page;
       return (
-        !frontmatter.home &&
+        // !frontmatter.home &&
         frontmatter.sidebar !== false &&
         this.sidebarItems.length
       );

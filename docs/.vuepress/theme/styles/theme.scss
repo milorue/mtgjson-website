@@ -217,6 +217,14 @@ img {
     }
   }
 
+  .sidebar-links {
+    li {
+      &:last-of-type {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
   .sidebar-sub-headers {
     &:empty {
       display: none;

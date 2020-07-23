@@ -91,7 +91,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 <style lang="scss">
 a.sidebar-link {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: normal;
   display: inline-block;
   color: var(--text-color);
   line-height: 2;

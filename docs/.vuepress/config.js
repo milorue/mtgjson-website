@@ -1,9 +1,13 @@
 // Dynamic sidebar
 const generateSidebarRoutes = require('./config.sidebar');
-const [dataModels, abstractModels] = generateSidebarRoutes(['/data-models/', '/abstract-models/']);
+const [dataFiles, dataModels, abstractModels] = generateSidebarRoutes([
+  '/documentation/files',
+  '/documentation/data-models/',
+  '/documentation/abstract-models/'
+]);
 // SEO data
 const description =
-'MTGJSON is an open-source project that catalogs all Magic: The Gathering cards in a portable format. A dedicated group of fans maintains and supplies data for a variety of projects and sites in the community. Using an aggregation process we fetch data between multiple resources and approved partners, and combine all this data in to various JSON files that you can learn about and download from this website.';
+  'MTGJSON is an open-source project that catalogs all Magic: The Gathering cards in a portable format. A dedicated group of fans maintains and supplies data for a variety of projects and sites in the community. Using an aggregation process we fetch data between multiple resources and approved partners, and combine all this data in to various JSON files that you can learn about and download from this website.';
 const title = 'MTGJSON.com | Cataloging all Magic: The Gathering cards in portable formats.';
 
 module.exports = {
@@ -167,49 +171,76 @@ module.exports = {
     sidebarDepth: 0,
     sidebar: [
       {
-        title: 'About Us',
+        type: 'page',
+        title: 'Home',
         path: '/'
       },
       {
+        type: 'page',
         title: 'F.A.Q.',
         path: '/faq/'
       },
       {
+        type: 'group',
         title: 'Downloads',
-        path: '/downloads/',
+        path: '/downloads/all-files/',
         collapsable: false,
         children: ['/downloads/all-files/', '/downloads/all-sets/', '/downloads/all-decks/']
       },
       {
-        title: 'File Structures',
-        path: '/file-structures/'
-      },
-      {
-        title: 'Data Models',
-        path: '/data-models/',
+        type: 'group',
+        title: 'Documentation',
+        path: '/documentation/data-models/',
         collapsable: false,
-        children: dataModels
+        children: [
+          {
+            type: 'group',
+            title: 'Data Models',
+            path: '/documentation/data-models/',
+            collapsable: false,
+            children: dataModels
+          },
+          {
+            type: 'group',
+            title: 'Abstract Models',
+            path: '/documentation/abstract-models/',
+            collapsable: false,
+            children: abstractModels
+          },
+          {
+            type: 'group',
+            title: 'Changelog',
+            path: '/documentation/changelog/version-5/',
+            collapsable: false,
+            children: [
+              {
+                title: 'Version 5',
+                path: '/documentation/changelog/version-5/'
+              },
+              {
+                title: 'Version 4',
+                path: '/documentation/changelog/version-4/'
+              }
+            ]
+          },
+        ]
       },
       {
-        title: 'Abstract Models',
-        path: '/abstract-models/',
+        type: 'group',
+        title: 'Misc',
+        path: '/brand-assets/',
         collapsable: false,
-        children: abstractModels
+        children: [
+          {
+            title: 'Brand Assets',
+            path: '/brand-assets/'
+          },
+          {
+            title: 'License (MIT)',
+            path: '/license/'
+          }
+        ]
       },
-      {
-        title: 'Changelog',
-        path: '/changelog/version-5',
-        collapsable: false,
-        children: ['/changelog/version-5/', '/changelog/version-4/']
-      },
-      {
-        title: 'Brand Assets',
-        path: '/brand-assets/'
-      },
-      {
-        title: 'License (MIT)',
-        path: '/license/'
-      }
     ]
   }
 };
