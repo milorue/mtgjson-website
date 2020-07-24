@@ -190,7 +190,6 @@ export default {
 
   h2 {
     margin: 0 auto;
-    color: var(--accent-color);
     padding: 4rem 0 2rem;
   }
 
@@ -213,6 +212,10 @@ export default {
 
     p {
       color: var(--text-color);
+    }
+
+    h2 {
+      color: var(--accent-color);
     }
 
     .cta-btn {
@@ -271,10 +274,10 @@ export default {
 
         .avatars {
           text-align: center;
-          display: flex;
-          justify-content: center;
+          display: grid;
+          justify-content: space-between;
           align-items: center;
-          flex-wrap: wrap;
+          grid-template-columns: repeat(auto-fill, 4rem);
           grid-gap: 1rem;
 
           &.image-fit {
@@ -321,11 +324,16 @@ export default {
   .home {
     padding: 0 !important;
 
-    .home-col {
+    &-wrap {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    &-col {
       padding-left: 0 !important;
 
       &-row {
-        margin: 0 2rem 2rem;
+        // margin: 0 2rem 2rem;
 
         &--wrap {
           padding: 0;
@@ -334,8 +342,8 @@ export default {
     }
 
     &-hero--wrapper {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 0rem;
+      padding-right: 0rem;
 
       svg {
         margin-top: 3rem;
