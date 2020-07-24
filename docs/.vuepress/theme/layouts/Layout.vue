@@ -36,10 +36,6 @@ export default {
     };
   },
 
-  async created() {
-    await this.$helpers.setStoreState.apply(this, ["Meta"]);
-  },
-
   computed: {
     shouldShowHome(){
       const { frontmatter } = this.$page;
@@ -90,6 +86,10 @@ export default {
         userPageClass,
       ];
     },
+  },
+
+  async created() {
+    await this.$helpers.setStoreState.apply(this, ["Meta"]);
   },
 
   mounted() {

@@ -10,9 +10,10 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs && yarn generate-version-atom && yarn generate-contributors",
+    "build:test": "vuepress build docs && yarn generate-version-atom",
     "purge": "rm -rf node_modules && yarn cache clean",
     "test": "yarn lint && jest --coverage --coverageDirectory='__coverage__'",
-    "test:full": "yarn test && yarn build",
+    "test:full": "yarn test && yarn build:test",
     "lint": "eslint --fix --ext .js,.vue docs/.vuepress",
     "regenerate-schema": "node ./utils/regenerate-schema.js",
     "generate-version-atom": "node ./utils/generate-version-atom.js",
