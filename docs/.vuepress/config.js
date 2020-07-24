@@ -1,7 +1,6 @@
 // Dynamic sidebar
 const generateSidebarRoutes = require('./config.sidebar');
-const [dataFiles, dataModels, abstractModels] = generateSidebarRoutes([
-  '/documentation/files',
+const [dataModels, abstractModels] = generateSidebarRoutes([
   '/documentation/data-models/',
   '/documentation/abstract-models/'
 ]);
