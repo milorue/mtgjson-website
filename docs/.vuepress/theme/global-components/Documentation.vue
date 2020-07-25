@@ -5,7 +5,7 @@
     //- Properties Options
     //- This fills out optional rendering
     .schema-options(v-if="!canShowOptionals")
-      label(for="show-optional") Hide <span class="yellow">Optional</span> properties:
+      label(for="show-optional") Hide Optional properties:
       input(id="show-optional" type="checkbox" v-model="showOptional")
     //- Properties Index
     //- This fills out an anchored list of all the properties
@@ -17,7 +17,7 @@
         v-for="(data, name) in filteredSchema"
         v-show="shouldShowProperty(data)"
         :key="name")
-          router-link(:to="'#' + name" :class="{optional: data.attributes && data.attributes.includes('optional')}") {{ name }}
+          router-link(:to="'#' + name") {{ name }}
       .show-more(v-if="showMore" @click="toggleIndex") {{ (willShowMore ? 'Show More' : 'Show Less') }}
 
     //- Properties Table
@@ -29,7 +29,7 @@
       v-for="(data, name) in filteredSchema"
       v-show="shouldShowProperty(data)"
       :key="name"
-      :class="{omitted: (!data.example && showExample), optional: data.attributes}")
+      :class="{omitted: (!data.example && showExample), optional: data.isOptional}")
         .schema-table--anchor(:id="name" aria-hidden="true")
 
         DocumentationField(
@@ -58,7 +58,6 @@
           .values-list
             ol.values-list--code(@click="toggleValue")
               li(v-for="(value, key) in getValues(name)" :key="key") "{{ value }}"
-        //- End logic for fields with examples
 
         DocumentationField(
         v-if="getValues(name) && getValues(name).length === 0"
@@ -73,21 +72,25 @@
         title="The description of the property and values")
           span(v-html="data.description")
 
-        //- DocumentationField(
-        //- v-if="data.attributes"
-        //- label="Attributes"
-        //- title="Any attributes of the property")
-        //-   .attribute(
-        //-     v-for="(attribute, key) in data.attributes"
-        //-     :key="key"
-        //-     :class="getAttribute(attribute)"
-        //-     :title="getTitle(getAttribute(attribute))") {{ attribute.replace('-', ' ') }}
-
         DocumentationField(
         v-if="data.introduced"
         label="Introduced"
         title="When the property was introduced")
           em(v-html="data.introduced")
+
+        DocumentationField(
+        v-if="data.notes.length > 0"
+        label="Notes"
+        title="Notes about this property")
+          span
+            strong(v-html="data.notes")
+
+        DocumentationField(
+        class="sr-only"
+        v-if="data.isOptional"
+        label="Optional")
+          pre true
+
 </template>
 
 <script>
@@ -114,7 +117,7 @@ export default {
       let count = 0;
 
       for (let prop in this.schema) {
-        let attr = this.schema[prop].attributes;
+        let attr = this.schema[prop].isOptional;
 
         if (attr) {
           count = count + 1;
@@ -208,14 +211,10 @@ export default {
     toggleValue(e) {
       e.currentTarget.classList.toggle("selected");
     },
-    getAttribute(attribute = "") {
-      return attribute.toLowerCase().split("-")[0];
-    },
     shouldShowProperty(prop) {
       return (
         !this.showOptional ||
-        !prop.attributes ||
-        (prop.attributes && !prop.attributes.includes("optional"))
+        (!prop.isOptional)
       );
     },
     getValues(property) {
@@ -244,20 +243,6 @@ export default {
       }
 
       return values;
-    },
-    getTitle(attribute) {
-      const attr = attribute.toLowerCase();
-
-      switch (attr) {
-        case "decks":
-          return "Property is only used on cards inside the Deck data model.";
-        case "optional":
-          return "Property may be omitted when data returns a falsey or expected value.";
-        case "deprecated":
-          return "Property will be removed in a future major or minor version release.";
-        default:
-          break;
-      }
     }
   }
 };

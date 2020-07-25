@@ -95,8 +95,6 @@
     position: relative;
     background-color: var(--table-bg-color);
     border-color: var(--table-border-color);
-    border-right-width: 0.75rem;
-    border-right-color: var(--accent-color);
     box-sizing: border-box;
     position: relative;
     margin-top: 1rem;
@@ -187,6 +185,20 @@
     &.optional {
       border-right-color: var(--yellow-color);
       border-right-width: 0.75rem;
+
+      &::after {
+        content: "OPTIONAL";
+        display: block;
+        position: absolute;
+        right: -2.65rem;
+        left: auto;
+        top: 50%;
+        transform: rotate(-90deg);
+        font-size: 1rem;
+        color: var(--yellow-color);
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
     }
 
     &--item {
@@ -211,7 +223,7 @@
         cursor: help;
 
         & + * {
-          padding: 7px 13px;
+          padding: .5rem 2rem .5rem 1rem;
           display: flex;
           align-items: center;
           grid-column: span 1;
@@ -238,14 +250,6 @@
           h6 {
             font-weight: normal;
           }
-        }
-      }
-
-      .attributes {
-        display: block;
-
-        .attribute {
-          margin-top: 5px;
         }
       }
     }

@@ -3,96 +3,112 @@
     "type": "string",
     "example": "\"Aether Revolt\"",
     "description": "Translation in Ancient Greek.",
-    "introduced": "v4.6.0"
+    "introduced": "v4.6.0",
+    "notes": ""
   },
   "Arabic": {
     "type": "string",
     "example": "\"ثورة إيثر\"",
     "description": "Translation in Arabic.",
-    "introduced": "v4.6.0"
+    "introduced": "v4.6.0",
+    "notes": ""
   },
   "Chinese Simplified": {
     "type": "string",
     "example": "\"乙太之乱\"",
     "description": "Translation in Chinese Simplified.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Chinese Traditional": {
     "type": "string",
     "example": "\"乙太之亂\"",
     "description": "Translation in Chinese Traditional.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "French": {
     "type": "string",
     "example": "\"La révolte éthérique\"",
     "description": "Translation in French.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "German": {
     "type": "string",
     "example": "\"Äther-Rebellion\"",
     "description": "Translation in German.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Hebrew": {
     "type": "string",
     "example": "\"מרד אתר\"",
     "description": "Translation in Hebrew.",
-    "introduced": "v4.6.0"
+    "introduced": "v4.6.0",
+    "notes": ""
   },
   "Italian": {
     "type": "string",
     "example": "\"Rivolta dell'Etere\"",
     "description": "Translation in Italian.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Japanese": {
     "type": "string",
     "example": "\"霊気紛争\"",
     "description": "Translation in Japanese.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Korean": {
     "type": "string",
     "example": "\"에테르 봉기\"",
     "description": "Translation in Korean.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Latin": {
     "type": "string",
     "example": "\"aetheris aeris alieni rebellionem coeptavere\"",
     "description": "Translation in Latin.",
-    "introduced": "v4.6.0"
+    "introduced": "v4.6.0",
+    "notes": ""
   },
   "Phyrexian": {
     "type": "string",
     "example": "\"Elesh Norn, Grand Cenobite\"",
     "description": "Translation in Phyrexian.",
-    "introduced": "v4.7.0"
+    "introduced": "v4.7.0",
+    "notes": ""
   },
   "Portuguese (Brazil)": {
     "type": "string",
     "example": "\"Revolta do Éter\"",
     "description": "Translation in Portuguese (Brazil).",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Russian": {
     "type": "string",
     "example": "\"«Эфирный Бунт»\"",
     "description": "Translation in Russian.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   },
   "Sanskrit": {
     "type": "string",
     "example": "\"आएथेर् रेवोल्त\"",
     "description": "Translation in Sanskrit.",
-    "introduced": "v4.6.0"
+    "introduced": "v4.6.0",
+    "notes": ""
   },
   "Spanish": {
     "type": "string",
     "example": "\"La revuelta del éter\"",
     "description": "Translation in Spanish.",
-    "introduced": "v4.0.0"
+    "introduced": "v4.0.0",
+    "notes": ""
   }
 }

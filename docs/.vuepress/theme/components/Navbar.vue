@@ -37,7 +37,7 @@ export default {
   border-bottom: 1px solid var(--bg-border-color);
   @extend %wrapper;
 
-  padding: 0 4rem;
+  padding: 0 2rem;
 
   // Race condition with nesting Logo inside of router-link
   .router-link-exact-active.router-link-active:empty {
@@ -69,8 +69,6 @@ export default {
 
 @media (max-width: 719px) {
   .navbar {
-    padding: 0 2rem;
-
     &-options {
       max-width: var(--content-width);
     }

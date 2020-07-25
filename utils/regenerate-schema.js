@@ -9,19 +9,20 @@ const fs = require('fs');
 
 (() => {
   const config = {
-    srcDir: './docs/.vuepress/public/schemas',
+    srcDir: './docs/.vuepress/src/schemas',
     /** This is the testing outDir, when validated, change to srcDir */
     outDir: './utils/output',
     /** schemas that have no intrinsic values */
     ignore: [
+      '.DS_Store'
     ],
     insert: {
       fields: [
         // Add new field objects with a default value
         {
           /** example */
-          // name: 'introduced',
-          // defaultValue: 'v4.0.0',
+          name: 'notes',
+          defaultValue: '',
         }
       ]
     },

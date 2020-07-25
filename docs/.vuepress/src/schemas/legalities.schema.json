@@ -4,107 +4,95 @@
     "example": "",
     "description": "Sol Ring is not legal in the Brawl play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "commander": {
     "type": "string",
     "example": "\"Legal\"",
     "description": "Sol Ring is legal in the Commander play format.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "duel": {
     "type": "string",
     "example": "\"Banned\"",
     "description": "Sol Ring is banned in the Duel Commander play format.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "future": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Future play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "frontier": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Frontier play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "legacy": {
     "type": "string",
     "example": "\"Banned\"",
     "description": "Sol Ring is banned in the Legacy play format.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "modern": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Modern play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "pauper": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Pauper play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "penny": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Penny play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "pioneer": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Pioneer play format. This property is omitted.",
     "introduced": "v4.6.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "standard": {
     "type": "string",
     "example": "",
     "description": "Sol Ring is not legal in the Standard play format. This property is omitted.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   },
   "vintage": {
     "type": "string",
     "example": "\"Restricted\"",
     "description": "Sol Ring is restricted in the Vintage play format.",
     "introduced": "v4.0.0",
-    "attributes": [
-      "optional"
-    ]
+
+    "notes": ""
   }
 }

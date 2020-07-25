@@ -1,7 +1,7 @@
 <template lang="pug">
   .schema-table--item
     h4.heading(:title="title") {{ label }}
-    .content
+    .content(:class="{attributes: label === 'Attributes'}")
       P
         slot
 </template>
@@ -18,7 +18,7 @@ export default {
 
 .content {
   & > * {
-    line-height: 1.2rem;
+    line-height: 1.5rem;
   }
 }
 </style>

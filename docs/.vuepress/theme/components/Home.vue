@@ -179,10 +179,6 @@ export default {
     padding-right: 4rem;
   }
 
-  & > * {
-    max-width: var(--content-width);
-  }
-
   h1 {
     padding-top: 0;
     padding-bottom: 0;
