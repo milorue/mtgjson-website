@@ -70,7 +70,7 @@
     "example": "3",
     "description": "How many of this card exists in a relevant deck.",
     "attributes": [
-      "decks-only"
+      "optional"
     ],
     "introduced": "v4.4.1"
   },
@@ -216,7 +216,7 @@
     "example": "true",
     "description": "If the card is in foil.",
     "attributes": [
-      "decks-only"
+      "optional"
     ],
     "introduced": "v5.0.0"
   },

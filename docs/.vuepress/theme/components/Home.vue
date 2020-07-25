@@ -36,6 +36,7 @@ main.home
         p {{ $site.description }}
         router-link.cta-btn(:to="'/faq/'") Get Started
 
+    //- Markdown file. Has some basic element rendering for the core team
     Content.custom
 
     .home-col
@@ -50,86 +51,66 @@ main.home
       h3#contributors Code Contributors
       .home-col-row
         .home-col-row--wrap
-          .full-flex.avatars.image-fit
-            a(
-              v-for="(user, key) in contributors",
-              :key="key",
-              :href="user.html_url",
-              target="_blank",
-              rel="noopener noreferrer"
-            )
-              img.lazy(
-                :src="user.avatar_url",
-                :data-src="user.avatar_url",
-                :alt="user.login",
-                :title="user.login"
+          ol.full-flex.avatars.contributors.image-fit
+            li(v-for="(user, key) in contributors", :key="key")
+              a(
+                :href="user.html_url",
+                target="_blank",
+                rel="noopener noreferrer"
               )
+                img.lazy(
+                  :src="user.avatar_url",
+                  :data-src="user.avatar_url",
+                  :alt="user.login",
+                  :title="user.login"
+                )
     //- Patrons
     .home-col(v-if="patrons.length > 0")
-      h3#patrons Patreon Supporters
+      h2#projects Our Supporters
+      p Without our Patreon supporters we would not be able to keep this site running. They keep the lights on here and we would like to highlight their efforts in supporting this project. MTGJSON does not endorse these supporters and their projects.
+      p We would like to acknowledge the different projects MTGJSON has helped serve data to their audiences. We're very proud of what our friends have accomplished. MTGJSON does not endorse these supporters and their projects.
+      p Don't see your name or project? Join the <a href="https://mtgjson/discord" target="_blank" rel="noopener noreferrer" >Discord</a> and let us know or open an issue on <a href="https://github.com/mtgjson/mtgjson-website/issues" target="_blank" rel="noopener noreferrer" >GitHub</a>. We'll be happy to add your work to our list.
+      h3 Patrons
       .home-col-row
         .home-col-row--wrap
-          p.full-flex.spaced Without our Patreon supporters we would not be able to keep this site running. They keep the lights on here and we would like to highlight their efforts in supporting this project. MTGJSON does not endorse these supporters and their projects.
-          p.full-flex.spaced Don't see your name or project? Join the <a href="https://mtgjson/discord" target="_blank" rel="noopener noreferrer" >Discord</a> and let us know or open an issue on <a href="https://github.com/mtgjson/mtgjson-website/issues" target="_blank" rel="noopener noreferrer" >GitHub</a>. We'll be happy to add your work to our list.
-          p.full-flex.avatars
-            a(
-              v-for="(user, key) in patrons",
-              :key="key",
-              :href="user.link",
-              target="_blank",
-              rel="noopener noreferrer"
-            )
-              img.logo.lazy(
-                src="",
-                :data-src="user.image",
-                :alt="user.name",
-                :title="user.name"
-              )
+          ol.full-flex.avatars
+            li(v-for="(user, key) in patrons", :key="key")
+              a(:href="user.link", target="_blank", rel="noopener noreferrer")
+                img.logo.lazy(
+                  src="",
+                  :data-src="user.image",
+                  :alt="user.name",
+                  :title="user.login"
+                )
     //- Projects
-    .home-col(v-if="services.length > 0")
-      h3#projects Powered by MTGJSON
+    .home-col(v-if="projects.length > 0")
+      h3#projects User Projects
       .home-col-row
         .home-col-row--wrap
-          p.full-flex.spaced We would like to acknowledge the different projects MTGJSON has helped serve data to their audiences. We're very proud of what our friends have accomplished. MTGJSON does not endorse these supporters and their projects.
-          p.full-flex.spaced Don't see your name or project? Join the <a href="https://mtgjson/discord" target="_blank" rel="noopener noreferrer" >Discord</a> and let us know or open an issue on <a href="https://github.com/mtgjson/mtgjson-website/issues" target="_blank" rel="noopener noreferrer" >GitHub</a>. We'll be happy to add your work to our list.
-          p.full-flex.avatars
-            a(
-              v-for="(user, key) in services",
-              :key="key",
-              :href="user.link",
-              target="_blank",
-              rel="noopener noreferrer"
-            )
-              img.logo.lazy(
-                src="",
-                :data-src="user.image",
-                :alt="user.name",
-                :title="user.name"
-              )
+          ol.full-flex.avatars
+            li(v-for="(user, key) in projects", :key="key")
+              a(:href="user.link", target="_blank", rel="noopener noreferrer")
+                img.logo.lazy(
+                  src="",
+                  :data-src="user.image",
+                  :alt="user.name",
+                  :title="user.login"
+                )
 </template>
 
 <script>
-import supporters from "../../src/resources/supporters.json";
+import patrons from "../../src/resources/patrons.json";
+import projects from "../../src/resources/projects.json";
 import contributors from "../../src/resources/contributors.json";
 
 export default {
   name: "Home",
   data() {
     return {
-      supporters,
+      patrons,
+      projects,
       contributors,
     };
-  },
-  computed: {
-    patrons() {
-      return this.supporters.patrons;
-    },
-    services() {
-      return this.supporters.services;
-    },
-  },
-  async created() {
-
   },
   mounted() {
     const lazyImages = Array.from(document.querySelectorAll("img.lazy"));
@@ -158,14 +139,27 @@ export default {
       });
     }
   },
+  methods: {
+    formatTime(time) {
+      const newDate = new Date();
+      const year = newDate.getFullYear();
+      const month = newDate.getMonth() + 1; // +1 because arrays are 0
+
+      const sinceDate = time.split("-");
+      const sinceYear = Number(sinceDate[0]);
+      const sinceMonth = Number(sinceDate[1]);
+
+      const totalMonths = 12 * (year - sinceYear) + (month - sinceMonth) + 1;
+      if (totalMonths === 1) {
+        return "1 Month";
+      }
+      return `${totalMonths} Months`;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.content__default {
-  padding: 0 !important;
-}
-
 .home {
   padding-left: var(--sidebar-width);
   padding-top: 4rem;
@@ -173,7 +167,14 @@ export default {
   display: block;
   background-color: var(--bg-dark-color);
 
+  .custom {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
   &-wrap {
+    max-width: 800px;
     padding-left: 4rem;
     padding-right: 4rem;
   }
@@ -207,8 +208,19 @@ export default {
     font-weight: bold;
   }
 
+  ol {
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+
   &-hero {
     padding-bottom: 4rem;
+    margin: 0 auto;
+    max-width: 800px;
 
     p {
       color: var(--text-color);
@@ -275,10 +287,9 @@ export default {
         .avatars {
           text-align: center;
           display: grid;
-          justify-content: space-between;
           align-items: center;
+          margin-bottom: 0;
           grid-template-columns: repeat(auto-fill, 4rem);
-          grid-gap: 1rem;
 
           &.image-fit {
             img {
@@ -287,11 +298,10 @@ export default {
           }
 
           a {
-            display: inline-block;
+            position: relative;
             height: 4rem;
             width: 4rem;
             border-radius: 50%;
-            // margin: 0 0.5rem 1rem;
             background-color: var(--light-color);
             overflow: hidden;
             display: flex;
@@ -314,6 +324,19 @@ export default {
               }
             }
           }
+
+          // &.contributors {
+          //   grid-template-columns: repeat(auto-fill, 2rem);
+
+          //   a {
+          //     height: 2rem;
+          //     width: 2rem;
+          //   }
+
+          //   img {
+          //     // filter: grayscale(100%);
+          //   }
+          // }
         }
       }
     }

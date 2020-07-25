@@ -5,20 +5,19 @@
     //- Properties Options
     //- This fills out optional rendering
     .schema-options(v-if="!canShowOptionals")
-      label(for="show-optional") Hide optional properties:
+      label(for="show-optional") Hide <span class="yellow">Optional</span> properties:
       input(id="show-optional" type="checkbox" v-model="showOptional")
     //- Properties Index
     //- This fills out an anchored list of all the properties
     .schema-index
       h3 Property Index
       p A list of all available properties.
-
       ol(:class="{hide: willShowMore, wontHide: !showMore}")
         li(
         v-for="(data, name) in filteredSchema"
         v-show="shouldShowProperty(data)"
         :key="name")
-          router-link(:to="'#' + name") {{ name }}
+          router-link(:to="'#' + name" :class="{optional: data.attributes && data.attributes.includes('optional')}") {{ name }}
       .show-more(v-if="showMore" @click="toggleIndex") {{ (willShowMore ? 'Show More' : 'Show Less') }}
 
     //- Properties Table
@@ -30,7 +29,7 @@
       v-for="(data, name) in filteredSchema"
       v-show="shouldShowProperty(data)"
       :key="name"
-      :class="{omitted: (!data.example && showExample)}")
+      :class="{omitted: (!data.example && showExample), optional: data.attributes}")
         .schema-table--anchor(:id="name" aria-hidden="true")
 
         DocumentationField(
@@ -59,6 +58,7 @@
           .values-list
             ol.values-list--code(@click="toggleValue")
               li(v-for="(value, key) in getValues(name)" :key="key") "{{ value }}"
+        //- End logic for fields with examples
 
         DocumentationField(
         v-if="getValues(name) && getValues(name).length === 0"
@@ -73,15 +73,15 @@
         title="The description of the property and values")
           span(v-html="data.description")
 
-        DocumentationField(
-        v-if="data.attributes"
-        label="Attributes"
-        title="Any attributes of the property")
-          .attribute(
-            v-for="(attribute, key) in data.attributes"
-            :key="key"
-            :class="getAttribute(attribute)"
-            :title="getTitle(getAttribute(attribute))") {{ attribute.replace('-', ' ') }}
+        //- DocumentationField(
+        //- v-if="data.attributes"
+        //- label="Attributes"
+        //- title="Any attributes of the property")
+        //-   .attribute(
+        //-     v-for="(attribute, key) in data.attributes"
+        //-     :key="key"
+        //-     :class="getAttribute(attribute)"
+        //-     :title="getTitle(getAttribute(attribute))") {{ attribute.replace('-', ' ') }}
 
         DocumentationField(
         v-if="data.introduced"
@@ -181,7 +181,7 @@ export default {
       return filteredSchema;
     }
   },
-  async mounted() {
+  async created() {
     let schema;
     let landcycle;
 
@@ -197,7 +197,7 @@ export default {
     await landcycle._init();
 
     // @todo: harden this since its not working but doesnt need to work right now
-    this.showMore = Object.keys(schema).length > 4;
+    this.showMore = Object.keys(schema).length > 10;
     this.values = this.$store.getters.EnumValues;
     this.schema = landcycle.schema;
   },

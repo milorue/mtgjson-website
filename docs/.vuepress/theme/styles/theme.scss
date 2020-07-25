@@ -174,6 +174,7 @@ img {
 .content__default {
   @extend %wrapper;
   padding: 0 4rem;
+  width: 800px;
 
   & > * {
     max-width: var(--content-width);
@@ -295,4 +296,8 @@ img {
   .mobile-hide {
     display: none !important;
   }
+}
+
+.yellow {
+  color: var(--yellow-color);
 }

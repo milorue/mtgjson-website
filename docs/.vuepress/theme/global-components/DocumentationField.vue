@@ -2,7 +2,7 @@
   .schema-table--item
     h4.heading(:title="title") {{ label }}
     .content
-      p
+      P
         slot
 </template>
 
@@ -15,4 +15,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/documentation";
+
+.content {
+  & > * {
+    line-height: 1.2rem;
+  }
+}
 </style>
