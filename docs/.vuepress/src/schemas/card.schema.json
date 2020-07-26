@@ -74,6 +74,7 @@
     "example": "3",
     "description": "How many of this card exists in a relevant deck.",
     "isOptional": true,
+    "isDeckProperty": true,
     "introduced": "v4.4.1",
     "notes": "Only available on a card from a {{link@Deck@/documentation/data-models/deck/}} data model."
   },
@@ -133,7 +134,7 @@
   "foreignData": {
     "type": "array(object) | array()",
     "example": "[ {{link@Foreign Data@/documentation/data-models/foreign-data/}}, ... ]",
-    "description": "See the {{link@Foreign Data@/documentation/data-models/foreign-data/}} data model.",
+    "description": "Foreign data entries for a card. See the {{link@Foreign Data@/documentation/data-models/foreign-data/}} data model.",
     "isAtomicProperty": true,
     "introduced": "v4.0.0",
     "notes": ""
@@ -199,7 +200,7 @@
   "identifiers": {
     "type": "object",
     "example": "{{link@Identifiers@/documentation/data-models/identifiers/}}",
-    "description": "See the {{link@Identifiers@/documentation/data-models/identifiers/}} data model.",
+    "description": "Identifiers of a card. Includes MTGJSON and partner identifiers. See the {{link@Identifiers@/documentation/data-models/identifiers/}} data model.",
     "isTokenProperty": true,
     "introduced": "v5.0.0",
     "notes": ""
@@ -326,7 +327,7 @@
   "leadershipSkills": {
     "type": "object",
     "example": "{{link@Leadership Skills@/documentation/data-models/leadership-skills/}}",
-    "description": "See the {{link@Leadership Skills@/documentation/data-models/leadership-skills/}} data model.",
+    "description": "If a card can be a commander in certain game formats. See the {{link@Leadership Skills@/documentation/data-models/leadership-skills/}} data model.",
 
     "isAtomicProperty": true,
     "introduced": "v4.5.1",
@@ -335,7 +336,7 @@
   "legalities": {
     "type": "object",
     "example": "{{link@Legalities@/documentation/data-models/legalities/}}",
-    "description": "See the {{link@Legalities@/documentation/data-models/legalities/}} data model.",
+    "description": "The legal capacity of a card in a game format. See the {{link@Legalities@/documentation/data-models/legalities/}} data model.",
 
     "isAtomicProperty": true,
     "introduced": "v4.0.0",
@@ -441,7 +442,7 @@
   "purchaseUrls": {
     "type": "object",
     "example": "{{link@Purchase Urls@/documentation/data-models/purchase-urls/}}",
-    "description": "See the {{link@Purchase Urls@/documentation/data-models/purchase-urls/}} data model.",
+    "description": "URLs to purchase the card products on affiliates. See the {{link@Purchase Urls@/documentation/data-models/purchase-urls/}} data model.",
     "isAtomicProperty": true,
     "introduced": "v4.4.0",
     "notes": ""
@@ -465,7 +466,7 @@
   "rulings": {
     "type": "array(object) | array()",
     "example": "[ {{link@Rulings@/documentation/data-models/rulings/}}, ... ]",
-    "description": "See the {{link@Rulings@/documentation/data-models/rulings/}} data model.",
+    "description": "The rulings of a card as described by Wizard of the Coast. See the {{link@Rulings@/documentation/data-models/rulings/}} data model.",
     "isAtomicProperty": true,
     "introduced": "v4.0.0",
     "notes": ""

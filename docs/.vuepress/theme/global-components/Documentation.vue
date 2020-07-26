@@ -29,7 +29,7 @@
       v-for="(data, name) in filteredSchema"
       v-show="shouldShowProperty(data)"
       :key="name"
-      :class="{omitted: (!data.example && showExample), optional: data.isOptional}")
+      :class="{omitted: (!data.example && showExample), optional: data.isOptional, deck: data.isDeckProperty}")
         .schema-table--anchor(:id="name" aria-hidden="true")
 
         DocumentationField(
@@ -46,7 +46,7 @@
 
         //- Start logic for fields used to populate examples
         DocumentationField(
-        v-if="!getValues(name)"
+        v-if="!getValues(name) && data.example.length > 0"
         label="Example"
         title="Example of the property value")
           pre(v-html="data.example")

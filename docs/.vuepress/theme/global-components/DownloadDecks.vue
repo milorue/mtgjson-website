@@ -12,7 +12,7 @@
             label(for="search-input") Search By:
             input.table-sort-select(
               id="search-input"
-              placeholder="name, code, etc..."
+              placeholder="name, code, type, etc..."
               type="text"
               v-model="searchKey"
               @input="onHandleChange")
@@ -27,6 +27,8 @@
               option(value="releaseDate") Oldest
               option(value="code") Code (Ascending)
               option(value="code:true") Code (Descending)
+              option(value="type") Type (Ascending)
+              option(value="type:true") Type (Descending)
               option(value="name") Name (Ascending)
               option(value="name:true") Name (Descending)
 
@@ -39,9 +41,12 @@
             .text-wrap--details
               h2(:id="deck.name.replace(/ /g, '_')") {{ deck.name }}
               ol
-                li
-                  small Deck Code:
+                li(v-if="deck.code")
+                  small Code:
                   small &nbsp;{{ deck.code }}
+                li(v-if="deck.type")
+                  small Type:
+                  small &nbsp;{{ deck.type }}
                 li(v-if="deck.releaseDate")
                   small Release Date:
                   small &nbsp;{{ deck.releaseDate }}

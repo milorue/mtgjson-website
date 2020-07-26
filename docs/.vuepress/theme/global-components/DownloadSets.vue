@@ -61,13 +61,13 @@
             .text-wrap--details
               h2(:id="set.name.replace(/ /g, '_')" :class="{spoiler: $helpers.isFutureDate(set.releaseDate)}") {{ set.name }}
               ol
-                li
-                  small Set Code:
+                li(v-if="set.code")
+                  small Code:
                   small &nbsp;{{ set.code }}
-                li
+                li(v-if="set.type")
                   small Type:
                   small &nbsp;{{ set.type.replace('_', ' ') }}
-                li
+                li(v-if="set.releaseDate")
                   small Release Date:
                   small &nbsp;{{ set.releaseDate }}
             .text-wrap--downloads
