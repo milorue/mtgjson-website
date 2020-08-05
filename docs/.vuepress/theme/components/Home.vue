@@ -54,16 +54,18 @@ main.home
           ol.full-flex.avatars.contributors.image-fit
             li(v-for="(user, key) in contributors", :key="key")
               a(
-                :href="user.html_url",
+                :href="user.link",
                 target="_blank",
                 rel="noopener noreferrer"
               )
                 img.lazy(
-                  :src="user.avatar_url",
-                  :data-src="user.avatar_url",
-                  :alt="user.login",
-                  :title="user.login"
+                  v-if="user.image"
+                  src="",
+                  :data-src="user.image",
+                  :alt="user.name",
+                  :title="user.name"
                 )
+                p(v-else) {{ user.name }}
     //- Patrons
     .home-col(v-if="patrons.length > 0")
       h2#projects Our Supporters
@@ -77,11 +79,13 @@ main.home
             li(v-for="(user, key) in patrons", :key="key")
               a(:href="user.link", target="_blank", rel="noopener noreferrer")
                 img.logo.lazy(
+                  v-if="user.image"
                   src="",
                   :data-src="user.image",
                   :alt="user.name",
                   :title="user.login"
                 )
+                p(v-else) {{ user.name }}
     //- Projects
     .home-col(v-if="projects.length > 0")
       h3#projects User Projects
@@ -91,11 +95,13 @@ main.home
             li(v-for="(user, key) in projects", :key="key")
               a(:href="user.link", target="_blank", rel="noopener noreferrer")
                 img.logo.lazy(
+                  v-if="user.image"
                   src="",
                   :data-src="user.image",
                   :alt="user.name",
                   :title="user.login"
                 )
+                p(v-else) {{ user.name }}
 </template>
 
 <script>
@@ -294,19 +300,22 @@ export default {
           }
 
           a {
-            position: relative;
-            height: 4rem;
-            width: 4rem;
-            border-radius: 50%;
-            background-color: var(--light-color);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            font-size: 10px;
-            color: var(--dark-color);
-            line-height: 0.75rem;
-            word-break: break-word;
+            &, p {
+              position: relative;
+              height: 4rem;
+              width: 4rem;
+              border-radius: 50%;
+              background-color: var(--light-color);
+              overflow: hidden;
+              display: flex;
+              align-items: center;
+              justify-content: center;;
+              text-align: center;
+              font-size: 10px;
+              color: var(--dark-color);
+              line-height: 0.75rem;
+              word-break: break-word;
+            }
 
             img {
               width: 100%;
@@ -318,6 +327,11 @@ export default {
               &.logo {
                 border-radius: 0;
               }
+            }
+
+            p {
+              padding: 0;
+              margin: 0;
             }
           }
 

@@ -1,8 +1,7 @@
-@import './vars';
+@import './includes';
 @import './reset';
 @import './custom-blocks';
 @import './typography';
-@import './wrapper';
 @import './code';
 @import './pages';
 
@@ -184,15 +183,13 @@ img {
 }
 
 .content__default {
-  @extend %wrapper;
-  padding: 0 4rem;
-  width: 800px;
+  @include wrapper();
 
   & > * {
     max-width: var(--content-width);
   }
 
-  & > *:first-child {
+  & > h1 {
     margin-top: 0;
     padding-top: 0;
   }
@@ -261,6 +258,15 @@ img {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+
+  .theme-container {
+    &.sidebar-open {
+      .sidebar {
+        transform: translateX(0);
+      }
+    }
+  }
+
   .desktop-hide {
     display: block !important;
   }

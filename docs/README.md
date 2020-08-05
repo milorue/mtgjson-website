@@ -14,6 +14,8 @@
 }
 ---
 
+<GlobalAlert />
+
 ## The Core Team
 
 ::: tip Zach - Lead Developer &amp; Maintainer

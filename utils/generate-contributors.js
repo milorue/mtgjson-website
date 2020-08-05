@@ -28,9 +28,9 @@ const fetchAndParse = async (endpoint) =>  {
       // Only return unique contributors
       const contributors = Array.from(new Set(contribs.map(u => u.login))).map(login => {
         return {
-          login,
-          html_url: contribs.find(u => u.login === login).html_url,
-          avatar_url: contribs.find(u => u.login === login).avatar_url
+          name: login,
+          link: contribs.find(u => u.login === login).html_url,
+          image: contribs.find(u => u.login === login).avatar_url
         };
       });
 

@@ -1,8 +1,8 @@
 // Dynamic sidebar
 const generateSidebarRoutes = require('./config.sidebar');
 const [dataModels, abstractModels] = generateSidebarRoutes([
-  '/documentation/data-models/',
-  '/documentation/abstract-models/'
+  '/data-models/',
+  '/abstract-models/'
 ]);
 // SEO data
 const description =
@@ -189,36 +189,36 @@ module.exports = {
       {
         type: 'group',
         title: 'Documentation',
-        path: '/documentation/data-models/',
+        path: '/data-models/',
         collapsable: false,
         children: [
           {
             type: 'group',
             title: 'Data Models',
-            path: '/documentation/data-models/',
+            path: '/data-models/',
             collapsable: false,
             children: dataModels
           },
           {
             type: 'group',
             title: 'Abstract Models',
-            path: '/documentation/abstract-models/',
+            path: '/abstract-models/',
             collapsable: false,
             children: abstractModels
           },
           {
             type: 'group',
             title: 'Changelog',
-            path: '/documentation/changelog/version-5/',
+            path: '/changelog/version-5/',
             collapsable: false,
             children: [
               {
                 title: 'Version 5',
-                path: '/documentation/changelog/version-5/'
+                path: '/changelog/version-5/'
               },
               {
                 title: 'Version 4',
-                path: '/documentation/changelog/version-4/'
+                path: '/changelog/version-4/'
               }
             ]
           },

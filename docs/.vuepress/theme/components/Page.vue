@@ -179,7 +179,7 @@ function flattern(items, res) {
 </script>
 
 <style lang="scss">
-@import '../styles/wrapper';
+@import '../styles/includes';
 
 .page {
   position: relative;
@@ -195,9 +195,9 @@ function flattern(items, res) {
   }
 
   .options {
-    @extend %wrapper;
+    @include wrapper();
     margin-bottom: 1rem;
-    width: 100%;
+    // width: 100%;
 
     &-wrap {
       left: var(--sidebar-width);
@@ -211,7 +211,7 @@ function flattern(items, res) {
 }
 
 .page-edit {
-  @extend %wrapper;
+  @include wrapper();
   padding-top: 3rem;
   padding-bottom: 2rem;
   overflow: auto;
@@ -248,7 +248,7 @@ function flattern(items, res) {
 }
 
 .page-nav {
-  @extend %wrapper;
+  @include wrapper();
   padding-top: 3rem;
 
   .inner {

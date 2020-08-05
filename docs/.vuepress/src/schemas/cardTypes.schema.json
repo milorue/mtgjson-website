@@ -1,80 +1,80 @@
 {
   "artifact": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Artifact cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Artifact cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "conspiracy": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Conspiracy cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Conspiracy cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "creature": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Creature cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Creature cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "enchantment": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Enchantment cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Enchantment cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "instant": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Instant cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Instant cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "land": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Land cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Land cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "phenomenon": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Phenomenon cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Phenomenon cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "plane": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Plane cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Plane cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "planeswalker": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Planeswalker. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Planeswalker. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "scheme": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Scheme cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Scheme cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "sorcery": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Sorcery cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Sorcery cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "tribal": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Tribal cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Tribal cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   },
   "vanguard": {
     "type": "object",
-    "example": "{{link@Types@/documentation/data-models/types}}",
-    "description": "All possible subtypes and supertypes for Vanguard cards. See the {{link@Types@/documentation/data-models/types}} data model.",
+    "example": "{{link@Types@/data-models/types}}",
+    "description": "All possible subtypes and supertypes for Vanguard cards. See the {{link@Types@/data-models/types}} data model.",
     "notes": ""
   }
 }
